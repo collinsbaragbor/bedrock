@@ -1,0 +1,6 @@
+@media screen and (max-width: 480px) {
+  .hero-section-1 {
+    background: url("../../assets/wb.png");
+    color: #f5f5f5;
+  }
+}
