@@ -2,12 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import { StepperContext } from '../components/contexts/StepperContext'
 import Stepper from '../components/Stepper'
-import StepperControl from '../components/StepperControl'
+import BackStepperControl from '../components/BackStepperControl'
 import background from '../assets/images/vector.png'
 import PersonalDetails from '../components/steps/PersonalDetails'
 import AuthDetails from '../components/steps/AuthDetails'
 import PaymentDetails from '../components/steps/PaymentDetails'
 import VerifyEmail from '../components/steps/VerifyEmail'
+import NextStepperControl from '../components/NextStepperControl'
 const SignupPage = () => {
 
     const [currentStep, setCurrentStep] = useState(1);
@@ -21,7 +22,7 @@ const SignupPage = () => {
     ];
     const displayStep = (step) => {
         switch (step){
-            case 1:
+            default:
                 return <PersonalDetails />
             case 2:
                 return <AuthDetails />
@@ -41,16 +42,27 @@ const SignupPage = () => {
 
   return (
     <div>
-        <div className='w-1/4 h-1/4 '>
-            <img className='w-full h-full' src={background} alt='/'/>
+        <div className='absolute inline-flex top-0 right-0 z-10 rounded-xl font-semibold'>
+            <BackStepperControl 
+                handleClick = {handleClick}
+                currentStep = {currentStep}
+                steps={steps}
+            />
         </div>
-        <div className='md:w-1/2 mx-auto lg:-mt-80 shadow-xl rounded-2xl pb-2 bg-white'>
+        <div className='absolute left-0 top-0'>
+            <img className='hidden w-1/2 h-1/2 md:w-full md:h-full' src={background} alt='/'/>
+        </div>
+        <div className='font-Raleway md:w-[40%] mx-auto mt-36 pb-2'>
+            <h1 className='text-4xl text-center text-black'>Sign Up</h1>
+            <p className='text-center text-xl text-black mt-4'>
+            Let's get you set up so that you can start trading.
+            </p>
             <div className='horizontal mt-5'>
                 <Stepper 
                     steps={steps}
                     currentStep={currentStep}
                 />
-                <div className='my-10 p-10'>
+                <div className='my-5 p-10'>
                     <StepperContext.Provider value={{
                         userData,
                         setUserData,
@@ -62,7 +74,7 @@ const SignupPage = () => {
                 </div>
             </div>
             
-            <StepperControl 
+            <NextStepperControl
                 handleClick = {handleClick}
                 currentStep = {currentStep}
                 steps={steps}
