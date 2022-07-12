@@ -35,14 +35,14 @@ const SignupPage = () => {
     const handleClick = (direction) => {
         let newStep = currentStep;
 
-        direction == 'next' ? newStep++ : newStep-- ;
+        direction === 'next' ? newStep++ : newStep-- ;
         newStep > 0 && newStep <= steps.length && setCurrentStep(newStep);
     }
 
   return (
     <div>
         <div className='w-1/4 h-1/4 '>
-            <img className='w-full h-full' src={background}/>
+            <img className='w-full h-full' src={background} alt='/'/>
         </div>
         <div className='md:w-1/2 mx-auto lg:-mt-80 shadow-xl rounded-2xl pb-2 bg-white'>
             <div className='horizontal mt-5'>

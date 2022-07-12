@@ -5,13 +5,13 @@ const Stepper = ({steps, currentStep}) => {
     const stepRef = useRef();
 
     const updateStep = (stepNumber, steps)=>{
-        const newSteps = [... steps]
+        const newSteps = [...steps]
         let count = 0;
 
         while (count < newSteps.length){
             if(count === stepNumber){
                 newSteps[count] = {
-                    ... newSteps[count],
+                    ...newSteps[count],
                     highlighted: true,
                     selected: true,
                     completed: true,
@@ -21,7 +21,7 @@ const Stepper = ({steps, currentStep}) => {
             //step completed
             else if(count < stepNumber){
                 newSteps[count] = {
-                    ... newSteps[count],
+                    ...newSteps[count],
                     highlighted: false,
                     selected: true,
                     completed: true,
@@ -31,7 +31,7 @@ const Stepper = ({steps, currentStep}) => {
             //step pending
             else {
                 newSteps[count] = {
-                    ... newSteps[count],
+                    ...newSteps[count],
                     highlighted: false,
                     selected: false,
                     completed: false,
