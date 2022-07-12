@@ -9,7 +9,7 @@ export default function VerifyEmail() {
     </div>
     <label htmlFor='Verification' className="after:content-['*'] after:ml-0.5 after:text-red h-6 mt-3 text-black text-md leading-8">Verification Code</label>
     <div className='my-2 p-1 flex border-2 border-grey rounded'>
-        <input name='verify' type='number' min="1" max="5" placeholder='Enter the OTP' className='out-of-range:border-red p-1 px-2 appearance-none outline-none w-full font-medium text-grey'/>
+        <input name='verify' type='number' min="1" max="5" placeholder='Enter the OTP' className='out-of-range:border-red p-1 px-2 appearance-none outline-none w-full font-medium text-black'/>
     </div>
       
   </div>
