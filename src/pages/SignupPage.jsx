@@ -42,7 +42,7 @@ const SignupPage = () => {
 
   return (
     <div>
-        <div className='absolute inline-flex top-0 right-0 z-10 rounded-xl font-semibold'>
+        <div className='absolute inline-flex mt-14 md:mt-28 md:mr-5 top-0 right-0 rounded-xl font-semibold'>
             <BackStepperControl 
                 handleClick = {handleClick}
                 currentStep = {currentStep}
@@ -52,17 +52,17 @@ const SignupPage = () => {
         <div className='absolute left-0 top-0'>
             <img className='hidden w-1/2 h-1/2 md:w-full md:h-full' src={background} alt='/'/>
         </div>
-        <div className='font-Raleway md:w-[40%] mx-auto mt-36 pb-2'>
+        <div className='font-Raleway md:w-[40%] mx-auto mt-10 md:mt-28 pb-2'>
             <h1 className='text-4xl text-center text-black'>Sign Up</h1>
-            <p className='text-center text-xl text-black mt-4'>
+            <p className='text-center md:text-xl text-black mt-4'>
             Let's get you set up so that you can start trading.
             </p>
-            <div className='horizontal mt-5'>
+            <div className='mt-5'>
                 <Stepper 
                     steps={steps}
                     currentStep={currentStep}
                 />
-                <div className='my-5 p-10'>
+                <div className='p-10'>
                     <StepperContext.Provider value={{
                         userData,
                         setUserData,
@@ -72,13 +72,15 @@ const SignupPage = () => {
                         {displayStep(currentStep)}
                     </StepperContext.Provider>
                 </div>
+                <div className='-mt-5'>
+                    <NextStepperControl
+                        handleClick = {handleClick}
+                        currentStep = {currentStep}
+                        steps={steps}
+                    />
+                </div>
             </div>
             
-            <NextStepperControl
-                handleClick = {handleClick}
-                currentStep = {currentStep}
-                steps={steps}
-            />
         </div>
     </div>
   )
